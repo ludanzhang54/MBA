@@ -1,0 +1,4 @@
+[server]
+# Don't watch source files for changes. Otherwise Streamlit's watcher crawls every
+# lazily-loaded transformers module, which spams the log and wastes memory.
+fileWatcherType = "none"

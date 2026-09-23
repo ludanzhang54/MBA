@@ -1,0 +1,11 @@
+# CPU-only PyTorch: much smaller than the default CUDA build, and Streamlit
+# Community Cloud has no GPU.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch>=2.5
+
+# Pinned: transformers 5.17.0 breaks the text-to-speech pipeline for
+# tokenizer-only models such as facebook/mms-tts-eng.
+transformers==5.16.0
+streamlit==1.64.0
+pillow
+numpy

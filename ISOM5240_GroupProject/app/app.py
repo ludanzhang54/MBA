@@ -28,7 +28,7 @@ from transformers import pipeline
 # Configuration
 # ---------------------------------------------------------------------------
 
-HF_USERNAME = "YOUR_HF_USERNAME"
+HF_USERNAME = "ludanzhang54"
 
 # Fine-tuned models uploaded by Notebooks 01 and 02.
 SENTIMENT_MODEL = f"{HF_USERNAME}/oh-review-sentiment"

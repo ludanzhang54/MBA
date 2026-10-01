@@ -1,0 +1,9 @@
+# CPU-only PyTorch: much smaller than the default CUDA build; Streamlit Cloud has no GPU.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch>=2.5
+
+# Pinned to the version used for fine-tuning in the Colab notebooks.
+transformers==5.16.0
+streamlit==1.64.0
+pandas
+altair

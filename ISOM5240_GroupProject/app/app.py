@@ -8,7 +8,7 @@ revenue management system (RMS) of Oriental Horizon Hotel Business.
 Two fine-tuned Hugging Face pipelines run on every review:
 
     1. Review sentiment  (negative / neutral / positive)  -> reputation
-    2. Guest segment     (business / couple / family)     -> demand mix
+    2. Guest segment     (business / leisure)             -> demand mix
 
 The results become a Net Reputation Score, a suggested room-rate adjustment
 and segment-specific pricing actions. A second tab measures the accuracy of
@@ -43,12 +43,12 @@ SEED = 42               # same sampling seed as Notebook 03
 MIN_RELIABLE_REVIEWS = 20
 
 SENTIMENT_LABELS = ["negative", "neutral", "positive"]
-SEGMENT_LABELS = ["business", "couple", "family"]
+SEGMENT_LABELS = ["business", "leisure"]
 
 # Chart colours. Sentiment is a polarity (red = bad, grey = neutral, blue = good);
-# segments are categories with three distinct, colour-blind-safe hues.
+# segments are categories with two distinct, colour-blind-safe hues.
 SENTIMENT_COLORS = ["#e34948", "#9b9a95", "#2a78d6"]
-SEGMENT_COLORS = ["#2a78d6", "#eb6834", "#1baf7a"]
+SEGMENT_COLORS = ["#4a3aa7", "#eb6834"]
 
 # Pricing levers for each guest segment, shown when the segment is common.
 SEGMENT_ACTIONS = {
@@ -57,15 +57,11 @@ SEGMENT_ACTIONS = {
         "price-sensitive. Raise weekday rates on high-demand dates, protect rooms "
         "for negotiated corporate rates, and sell late check-out and fast Wi-Fi."
     ),
-    "couple": (
-        "💑 **Couples** travel at weekends and on holidays and respond to experiences. "
-        "Raise weekend rates on peak dates and bundle breakfast, room upgrades or "
-        "late check-out instead of discounting."
-    ),
-    "family": (
-        "👨‍👩‍👧 **Families** travel in school holidays, compare prices and stay longer. "
-        "Offer family rooms and connecting rooms, length-of-stay discounts and "
-        "early-booking offers, and avoid steep last-minute price rises."
+    "leisure": (
+        "🌴 **Leisure guests** travel at weekends and in holidays, compare prices and "
+        "book further ahead. Raise weekend and holiday rates on peak dates, sell packages "
+        "(breakfast, upgrades, late check-out) instead of discounting, and use "
+        "early-booking and length-of-stay offers to fill quiet dates."
     ),
 }
 

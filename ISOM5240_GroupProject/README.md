@@ -16,7 +16,7 @@ guest reviews ──► Pipeline 1: fine-tuned sentiment model ──► Net Rep
 | Component | Pre-trained model (Hugging Face) | Fine-tuned model | Labels |
 |-----------|----------------------------------|------------------|--------|
 | Pipeline 1 | `distilbert-base-uncased` / `distilroberta-base` | `oh-review-sentiment` | negative · neutral · positive |
-| Pipeline 2 | `distilbert-base-uncased` / `distilroberta-base` | `oh-guest-segment` | business · couple · family |
+| Pipeline 2 | `distilbert-base-uncased` / `distilroberta-base` | `oh-guest-segment` | business · leisure |
 | Baselines | `nlptown/bert-base-multilingual-uncased-sentiment`, `facebook/bart-large-mnli` (zero-shot) | – | – |
 
 ## Repository layout
@@ -40,11 +40,12 @@ ISOM5240_GroupProject/
 
 * **Sentiment:** reviewer score below 5.5 = negative, 6.5–7.9 = neutral, 9.0 and above = positive
   (the gaps remove ambiguous scores).
-* **Segment:** trip tags `Business trip` = business, `Leisure trip` + `Couple` = couple,
-  `Leisure trip` + `Family with … children` = family.
+* **Segment:** trip tags `Business trip` = business, `Leisure trip` = leisure.
+  A first version with three segments (business / couple / family) reached only 55.8% test
+  accuracy, because most reviews do not reveal who the guest travelled with. It was replaced by
+  the business-vs-leisure split, which is also the core segmentation in hotel revenue management.
 
-Each task gets a class-balanced sample of 6,000 reviews per label, split 80/10/10
-(train 14,400 / validation 1,800 / test 1,800, seed 42).
+Each task gets a class-balanced sample of up to 15,000 reviews per label, split 80/10/10 (seed 42).
 
 ## How to reproduce
 

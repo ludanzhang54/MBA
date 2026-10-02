@@ -23,15 +23,22 @@ guest reviews ──► Pipeline 1: fine-tuned sentiment model ──► Net Rep
 
 ```
 ISOM5240_GroupProject/
-├── notebooks/
+├── notebooks/                        # clean notebooks (open in Colab and Run all)
 │   ├── 00_Data_Preparation.ipynb     # download, clean, label, balance, split, upload dataset
-│   ├── 01_Finetune_Sentiment.ipynb   # Student 1: fine-tune + select the sentiment model
-│   ├── 02_Finetune_Segment.ipynb     # Student 2: fine-tune + select the segment model
+│   ├── 01_Finetune_Sentiment.ipynb   # Ou Zhiyong: fine-tune + select the sentiment model
+│   ├── 02_Finetune_Segment.ipynb     # Zhang Ludan: fine-tune + select the segment model
 │   └── 03_Experiments.ipynb          # model selection (accuracy, runtime) + app performance
-└── app/
-    ├── app.py                        # Streamlit application
-    └── requirements.txt
+├── notebooks_executed/               # the same notebooks with the outputs reported
+├── app/
+│   ├── app.py                        # Streamlit application
+│   └── requirements.txt
+├── results/Experimental_results.xlsx # all experiment results
+├── report/                           # project report (PDF / Word) and figures
+└── presentation/                     # slides and video script
 ```
+
+**Team (Group 6):** Ou Zhiyong (A0018498R) · Zhang Ludan (A0309855R)
+**App:** <https://oriental-horizon-review.streamlit.app/>
 
 ## Dataset
 
@@ -54,6 +61,11 @@ Each task gets a class-balanced sample of up to 15,000 reviews per label, split 
 3. Run the notebooks in order 00 → 01 → 02 → 03 with *Runtime → Run all*.
    Notebooks 01–03 load the dataset and models from the Hugging Face Hub, so they also run
    without a token.
+
+**Reproducibility.** All random seeds are fixed (42), so the data sample and splits are identical
+on every run. Re-running the GPU fine-tuning can move accuracy by a few tenths of a percentage
+point, because some GPU operations are not deterministic. The models used by the app and reported
+in our results are the ones uploaded to the Hugging Face Hub.
 4. Deploy `app/app.py` on Streamlit Community Cloud. The *Accuracy check* tab measures both
    models' accuracy on labelled test reviews on Streamlit Cloud.
 

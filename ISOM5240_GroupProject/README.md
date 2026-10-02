@@ -62,12 +62,13 @@ Each task gets a class-balanced sample of up to 15,000 reviews per label, split 
    Notebooks 01–03 load the dataset and models from the Hugging Face Hub, so they also run
    without a token.
 
-**Reproducibility.** All random seeds are fixed (42), so the data sample and splits are identical
-on every run. Re-running the GPU fine-tuning can move accuracy by a few tenths of a percentage
-point, because some GPU operations are not deterministic. The models used by the app and reported
-in our results are the ones uploaded to the Hugging Face Hub.
 4. Deploy `app/app.py` on Streamlit Community Cloud. The *Accuracy check* tab measures both
    models' accuracy on labelled test reviews on Streamlit Cloud.
 
 Software: `transformers==5.16.0` in both the notebooks and the app, so the deployed models
 behave the same as in the experiments.
+
+**Reproducibility.** All random seeds are fixed (42), so the data sample and splits are identical
+on every run. Re-running the GPU fine-tuning can move accuracy by a few tenths of a percentage
+point, because some GPU operations are not deterministic. The models used by the app and reported
+in our results are the ones uploaded to the Hugging Face Hub.

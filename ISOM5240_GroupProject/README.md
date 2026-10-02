@@ -61,7 +61,6 @@ Each task gets a class-balanced sample of up to 15,000 reviews per label, split 
 3. Run the notebooks in order 00 → 01 → 02 → 03 with *Runtime → Run all*.
    Notebooks 01–03 load the dataset and models from the Hugging Face Hub, so they also run
    without a token.
-
 4. Deploy `app/app.py` on Streamlit Community Cloud. The *Accuracy check* tab measures both
    models' accuracy on labelled test reviews on Streamlit Cloud.
 
